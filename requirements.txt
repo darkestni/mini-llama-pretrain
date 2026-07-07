@@ -1,0 +1,20 @@
+# MiniLlama-Pretrain 依赖
+# Python >= 3.10
+
+# ---- 核心 ----
+torch>=2.1.0
+transformers>=4.45.0
+accelerate>=0.34.0
+datasets>=2.20.0
+tokenizers>=0.20.0
+
+# ---- 配置与工具 ----
+pyyaml>=6.0
+tqdm>=4.66.0
+numpy>=1.24.0
+
+# ---- 评测 ----
+matplotlib>=3.7.0
+
+# ---- 可选：wikipedia 数据需要 ----
+# 注：datasets 自带 wikipedia loader，无需额外包

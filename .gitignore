@@ -1,0 +1,22 @@
+# 数据与模型产物
+data/cache/
+data/processed/
+data/tokenized/
+*.pt
+*.bin
+*.safetensors
+outputs/
+runs/
+wandb/
+*.log
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.DS_Store
+.ipynb_checkpoints/
+.vscode/
+.idea/
+results/*.png
+!results/experiment_template.md
