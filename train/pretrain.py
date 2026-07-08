@@ -73,12 +73,14 @@ def main():
     from datasets import Dataset
     blocks = np.load(args.data_file)
     print(f"    数据: {blocks.shape}（{blocks.shape[0]} 个 {blocks.shape[1]}-token 块）")
-    # labels = input_ids（CLM 自动 shift）
+    # 高效构建：直接用 numpy 数组，不转 list（tolist 会爆内存）
+    attention = np.ones_like(blocks, dtype=np.int64)
     dataset = Dataset.from_dict({
-        "input_ids": blocks.tolist(),
-        "labels": blocks.tolist(),
-        "attention_mask": np.ones_like(blocks).tolist(),
+        "input_ids": blocks,
+        "labels": blocks,
+        "attention_mask": attention,
     })
+    dataset.set_format(type="torch", columns=["input_ids", "labels", "attention_mask"])
     print(f"    样本数: {len(dataset)}")
 
     # ---- 3. 配置训练 ----

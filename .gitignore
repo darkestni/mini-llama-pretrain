@@ -18,5 +18,6 @@ venv/
 .ipynb_checkpoints/
 .vscode/
 .idea/
-results/*.png
 !results/experiment_template.md
+results/formal_train.log
+results/*.log
